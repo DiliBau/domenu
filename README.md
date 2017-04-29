@@ -11,6 +11,15 @@ NPM: `npm install domenu`
 
 --
 
+### Fork changes
+This fork exposes the `createNewListItem` function on the `PublicPlugin` object. Please read the [documentation](http://mechanicious.github.io/domenu/) for more details about `PublicPlugin`.
+The `createNewListItem` is used to dynamically add a menu item without having to click the add button. It accepts an object to fill the data fields of the list item.
+
+Usage:
+```
+$('#domenu-0').domenu().createNewListItem({title: 'Item 02', id: 324});
+```
+
 ### Official Documentation
 You can find documentation for this project on [doMenu website](http://mechanicious.github.io/domenu/) or browse through the branches to find out about the earlier versions.
 

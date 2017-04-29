@@ -1414,6 +1414,25 @@
       return this;
     },
     /**
+     * @desc Creates a new item in the list
+     * @param itemData
+     * @returns {*}
+     */
+    createNewListItem: function (itemData) {
+      var item = this._plugin.createNewListItem(itemData);
+      var _this = this._plugin;
+      var opt   = this._plugin.options;
+      
+      var list = _this.$instance.find(opt.listClass.dot()).first()
+      item.css('display', 'none');
+      list.prepend(item);
+      item.fadeIn(opt.newItemFadeIn);
+
+      _this.options.event.onItemAdded.forEach(function (cb, i) {
+          cb($(item));
+      });
+    },
+    /**
      * @desc Collapse items one by one. If callback returns then the item will be expanded.
      * @callback-params $item
      * @param cb
